@@ -121,19 +121,48 @@ var imgLink_subgroup = [
 
 ];
 
+  // Subgroup CIs
+var preview_subgroup = [
+  "ci_1_av.jpeg", 
+  "ci_2_av.jpeg", 
+  "ci_6_av.jpeg",  
+  "ci_9_av.jpeg", 
+  "ci_10_av.jpeg", 
+  "ci_11_av.jpeg", 
+  "ci_16_av.jpeg", 
+  "ci_17_av.jpeg", 
+  "ci_22_av.jpeg", 
+  "ci_23_av.jpeg", 
+  "ci_1_app.jpeg", 
+  "ci_2_app.jpeg",  
+  "ci_6_app.jpeg", 
+  "ci_9_app.jpeg", 
+  "ci_10_app.jpeg", 
+  "ci_11_app.jpeg",  
+  "ci_16_app.jpeg", 
+  "ci_17_app.jpeg", 
+  "ci_22_app.jpeg", 
+  "ci_23_app.jpeg", 
+  "ci_24_app.jpeg",  
+  "ci_29_app.jpeg"
+
+];
   // Add relative path to CIs
   imgLink_avg = imgLink_avg.map(function(e) {return githubCIs + e});
   imgLink_subgroup = imgLink_subgroup.map(function(e) {return githubCIs + e});
+  preview_subgroup = preview_subgroup.map(function(e) {return githubCIs + e});
 
   // CIs stims
   CIsStims_avg = imgLink_avg.map(function(e) {return {imgHtml: "<img class='imgJudge' src='" + e + "'>"}});
   CIsStims_subgroup = imgLink_subgroup.map(function(e) {return {imgHtml: "<img class='imgJudge' src='" + e + "'>"}});
+  CIsStims_preview = preview_subgroup.map(function(e) {return {imgHtml: "<img class='imgJudge' src='" + e + "'>"}});
  // randomize order
   CIsStims_avg = _.shuffle(CIsStims_avg);
   CIsStims_subgroup = _.shuffle(CIsStims_subgroup);
+  CIsStims_preview = _.shuffle(CIsStims_preview);
 
   // Preload images
-  preloadimages.push(imgLink_avg, imgLink_subgroup);
+  preloadimages.push(imgLink_avg, imgLink_subgroup, preview_subgroup);
   preloadimages = flatten(preloadimages);
 
   // EXPERIMENT --------------------------------------------------------------------------------------------------------
@@ -313,7 +342,7 @@ var imgLink_subgroup = [
 
 /* PREVIEW CIS */
   var previewCI_subgroup = {
-    timeline_variables: CIsStims_subgroup,
+    timeline_variables: CIsStims_preview,
     choices: jsPsych.NO_KEYS,
     trial_duration: 1000,
     post_trial_gap: 100,
