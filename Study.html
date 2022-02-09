@@ -217,10 +217,9 @@ var imgLink_subgroup = [
     stimulus: function() {
       var html = "";
       html += "<h1>Faces rating: Part 1</h1>";
-      html += "<p class='justify'>In this part you will <b>judge 2 faces</b>. </br> ";
-      html += "Before the evaluation task, <b>we will first briefly present you the 2 faces</b> ";
+      html += "<p class='justify'>Before the evaluation task, <b>we will first briefly present you the 2 faces that you will evaluate</b> ";
       html += "for you to better gauge the similarities and differences between them. </br> ";
-      html += "Faces will be automatically paced during 1 second each. Pleace remain focused.</br></br>";
+      html += "Faces will be <b>automatically paced</b> during 1 second each. Pleace remain focused.</br></br>";
       html += "<p></br>Press <span class='light-keys'><kbd>space</kbd></span> to begin</p>";
       return html;
     },
@@ -246,7 +245,7 @@ var imgLink_subgroup = [
     stimulus: function() {
       var html = "";
       html += "<h1>Faces rating: Part 1</h1>";
-      html += "<p class='justify'>Now you will rate the 2 faces.";
+      html += "<p class='justify'>Now, you will rate the 2 faces.</b>";
       html += " Again, try to answer <b> as honestly and as spontaneously as possible. </b></br></br>";
       html += "<p></br>Press <span class='light-keys'><kbd>space</kbd></span> to begin</p>";
       return html;
@@ -300,13 +299,16 @@ var imgLink_subgroup = [
     stimulus: function() {
       var html = "";
       html += "<h1>Faces rating: Part 2</h1>";
-      html += "<p class='justify'>Part 1 is over. Now, in this part, you will <b>judge 52 faces</b>. </br> ";
+      html += "<p class='justify'>Part 1 is over. In this part, you will <b>judge 52 faces</b>. </br> ";
       html += "Before the evaluation task, <b>we will first briefly present you a sample of these faces</b> ";
       html += "for you to better gauge the similarities and differences between them. </br> ";
       html += "Faces will be automatically paced during 1 second each. Pleace remain focused.</br></br>";
       html += "<p></br>Press <span class='light-keys'><kbd>space</kbd></span> to begin</p>";
       return html;
     },
+      on_load: function() {
+          $(".jspsych-content").css("max-width", "90%");
+       }
   };
 
 /* PREVIEW CIS */
@@ -329,7 +331,7 @@ var imgLink_subgroup = [
     stimulus: function() {
       var html = "";
       html += "<h1>Faces rating: Part 2</h1>";
-      html += "<p class='justify'>Now you will rate the 52 faces.";
+      html += "<p class='justify'>Now, you will rate the 52 faces.</b>";
       html += " Again, try to answer <b> as honestly and as spontaneously as possible. </b></br></br>";
       html += "<p></br>Press <span class='light-keys'><kbd>space</kbd></span> to begin</p>";
       return html;
