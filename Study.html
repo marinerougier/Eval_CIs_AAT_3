@@ -123,11 +123,11 @@ var imgLink_subgroup = [
 
   // Add relative path to CIs
   imgLink_avg = imgLink_avg.map(function(e) {return githubCIs + e});
-  imgLink_subgroup = imgLink_avg.map(function(e) {return githubCIs + e});
+  imgLink_subgroup = imgLink_subgroup.map(function(e) {return githubCIs + e});
 
   // CIs stims
   CIsStims_avg = imgLink_avg.map(function(e) {return {imgHtml: "<img class='imgJudge' src='" + e + "'>"}});
-  CIsStims_subgroup = imgLink_avg.map(function(e) {return {imgHtml: "<img class='imgJudge' src='" + e + "'>"}});
+  CIsStims_subgroup = imgLink_subgroup.map(function(e) {return {imgHtml: "<img class='imgJudge' src='" + e + "'>"}});
  // randomize order
   CIsStims_avg = _.shuffle(CIsStims_avg);
   CIsStims_subgroup = _.shuffle(CIsStims_subgroup);
@@ -493,7 +493,7 @@ var imgLink_subgroup = [
       //jsPsych.data.displayData();
 
       /* Send data to Firebase and redirect to Qualtrics */
-      database.ref("Eval_Cis_AAT_2/" + id + "/").update({subdata}).then(function() { 
+      database.ref("Eval_Cis_AAT_3/" + id + "/").update({subdata}).then(function() { 
         console.log("data sent!");
         $("#jspsych-content").html(debrief);
         //window.location = qlink; // redirect to qualtrics
