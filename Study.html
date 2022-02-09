@@ -192,23 +192,35 @@ var imgLink_subgroup = [
     },
   };
 
-  /* PREVIEW CIS INSTRUCTIONS */
-  var previewCIinst = {
+   var instr_gene = {
     type: "html-keyboard-response",
     post_trial_gap: 300,
     choices: [32],
     stimulus: function() {
       var html = "";
       html += "<h1>Faces rating</h1>";
-      html += "<p class='justify'>In this study, you task is to <b>judge 2 faces</b>. You will indicate, "
+      html += "<p class='justify'>In this study, you task is to <b>evaluate several faces</b> (54 faces in total). You will indicate, "
       html += "for each face, to what extent this face looks <b>aggressive, trustworthy</b> and ";
       html += "<b>criminal</b> (from 0 = not at all to 100 = totally). </br> ";
       html += "As you will see, these faces have been <b>blurred</b> to make the task more challenging. </br></br>";
-      html += "Note that it is extremely important for you to <b>answer as honestly and as spontaneously as possible.</b> "
-      html += "The first answer that comes to mind is usually the best answer.</br></br>";
-      html += "Before the evaluation task, <b>we will first briefly present you the faces</b> ";
+      html += "This study consists in two parts. In Part 1, you will evaluate 2 faces and in Part 2 you will evaluate 52 faces. </br></br>";
+      html += "<p></br>Press <span class='light-keys'><kbd>space</kbd></span> to begin</p>";
+      return html;
+    },
+  };
+
+  /* PREVIEW CIS INSTRUCTIONS */
+  var previewCIinst_avg = {
+    type: "html-keyboard-response",
+    post_trial_gap: 300,
+    choices: [32],
+    stimulus: function() {
+      var html = "";
+      html += "<h1>Faces rating: Part 1</h1>";
+      html += "<p class='justify'>In this part you will <b>judge 2 faces</b>. </br> ";
+      html += "Before the evaluation task, <b>we will first briefly present you the 2 faces</b> ";
       html += "for you to better gauge the similarities and differences between them. </br> ";
-      html += "Faces will be automatically paced during less than 2 seconds each. Pleace remain concentrated.</br></br>";
+      html += "Faces will be automatically paced during 1 second each. Pleace remain focused.</br></br>";
       html += "<p></br>Press <span class='light-keys'><kbd>space</kbd></span> to begin</p>";
       return html;
     },
@@ -233,7 +245,7 @@ var imgLink_subgroup = [
     choices: [32],
     stimulus: function() {
       var html = "";
-      html += "<h1>Faces rating</h1>";
+      html += "<h1>Faces rating: Part 1</h1>";
       html += "<p class='justify'>Now you will rate the 2 faces.";
       html += " Again, try to answer <b> as honestly and as spontaneously as possible. </b></br></br>";
       html += "<p></br>Press <span class='light-keys'><kbd>space</kbd></span> to begin</p>";
@@ -280,6 +292,23 @@ var imgLink_subgroup = [
     judgments_avg.push(likert_trial);
   });
 
+  /* PREVIEW CIS INSTRUCTIONS */
+  var previewCIinst_subgroup = {
+    type: "html-keyboard-response",
+    post_trial_gap: 300,
+    choices: [32],
+    stimulus: function() {
+      var html = "";
+      html += "<h1>Faces rating: Part 2</h1>";
+      html += "<p class='justify'>Part 1 is over. Now, in this part, you will <b>judge 52 faces</b>. </br> ";
+      html += "Before the evaluation task, <b>we will first briefly present you a sample of these faces</b> ";
+      html += "for you to better gauge the similarities and differences between them. </br> ";
+      html += "Faces will be automatically paced during 1 second each. Pleace remain focused.</br></br>";
+      html += "<p></br>Press <span class='light-keys'><kbd>space</kbd></span> to begin</p>";
+      return html;
+    },
+  };
+
 /* PREVIEW CIS */
   var previewCI_subgroup = {
     timeline_variables: CIsStims_subgroup,
@@ -299,7 +328,7 @@ var imgLink_subgroup = [
     choices: [32],
     stimulus: function() {
       var html = "";
-      html += "<h1>Faces rating</h1>";
+      html += "<h1>Faces rating: Part 2</h1>";
       html += "<p class='justify'>Now you will rate the 52 faces.";
       html += " Again, try to answer <b> as honestly and as spontaneously as possible. </b></br></br>";
       html += "<p></br>Press <span class='light-keys'><kbd>space</kbd></span> to begin</p>";
@@ -444,10 +473,12 @@ var imgLink_subgroup = [
   timeline.push(consent);
   timeline.push(Quit_expe);
   timeline.push(activeFullscreen);
-  timeline.push(previewCIinst);
+  timeline.push(instr_gene);
+  timeline.push(previewCIinst_avg);
   timeline.push(previewCI_avg);
   timeline.push(jugmentInst_avg);
   timeline.push(judgments_avg);
+  timeline.push(previewCIinst_subgroup);
   timeline.push(previewCI_subgroup);
   timeline.push(jugmentInst_subgroup);
   timeline.push(judgments_subgroup);
